@@ -17,7 +17,7 @@ import java.util.Objects;
 public class UserModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
     @Column(name = "firstname")
     private String firstName;
