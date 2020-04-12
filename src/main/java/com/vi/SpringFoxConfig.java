@@ -40,7 +40,7 @@ public class SpringFoxConfig extends WebMvcConfigurationSupport {
     public Docket api() {
 
         return new Docket(DocumentationType.SWAGGER_2)
-                .ignoredParameterTypes(AuthenticationPrincipal.class)
+                //.ignoredParameterTypes(AuthenticationPrincipal.class)
                 .apiInfo(apiInfo())
                 .securitySchemes(Arrays.asList(apiKey()))
                 .securityContexts(Arrays.asList(securityContext()))
