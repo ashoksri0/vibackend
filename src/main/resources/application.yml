@@ -1,14 +1,43 @@
-spring.jpa:
-  database: POSTGRESQL
-  hibernate.ddl-auto: create-drop
-  show-sql: true
-
-spring.datasource:
-  platform: postgres
-  driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/postgres
-  username: postgres
-  password: postgres
-
 server:
-  port: 1234
+  port: 8081
+  servlet:
+    context-path: /vi/api/
+
+spring:
+  servlet:
+    multipart:
+      max-file-size : 200MB
+      max-request-size: 215MB
+      file-size-threshold : 2KB
+      enabled : true
+  profiles:
+    active: mysql
+  application:
+    name: patient3sixty
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        provider_disables_autocommit: false
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/vi?useSSL=false
+    username: root
+    password: Asdf@1234
+    #password: root
+    hikari:
+      connection-timeout: 20000
+      maximumPoolSize: 20
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+logging:
+  level.root: info
+  pattern:
+    console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}%L){blue} %clr(:){red} %clr(%m){faint}%n"
+#  level.org.springframework.securityDEBUG
