@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -51,11 +50,13 @@ public class SpringFoxConfig extends WebMvcConfigurationSupport {
                 .paths(PathSelectors.any())
                 .build();
     }
+/*
 
     @Bean
     public SecurityConfiguration securityInfo() {
         return new SecurityConfiguration(null, null, null, null, "", ApiKeyVehicle.HEADER, "Authorization", "");
     }
+*/
 
     private ApiKey apiKey() {
         return new ApiKey("apiKey", "Authorization", "header");
